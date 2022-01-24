@@ -15,14 +15,10 @@ class CqeditController extends Controller
 
         return view('edit', compact('cqedit'));
     }
-    //編集内容の更新を実行。
+    //編集の更新を実行。
     public function edit($cqid)
     {
         $cqedit = Cqresult::find($cqid);
-
-
-
-        
 
         return view('edit', compact('cqedit'));
     }
