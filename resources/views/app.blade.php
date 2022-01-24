@@ -8,7 +8,7 @@
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>顧客アンケート一覧</title>
+	<title>アンケート一覧</title>
 
 	<!-- Styles -->
 	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -64,7 +64,7 @@
 			<nav class="navbar navbar-dark">
 				<span class="col-lg-2 col-sm-3 navbar-brand">
 					<img src="{{asset('images/logo_CQ.png')}}" class="w-100 mr-3">
-					<span classs="sys-name">顧客アンケートDBシステム</span>
+					<span classs="sys-name">アンケートDBシステム</span>
 				</span>
 			</nav>
 		</div>
