@@ -8,7 +8,7 @@
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>顧客アンケート一覧</title>
+	<title>アンケート一覧</title>
 
 	<!-- Styles -->
 	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -84,39 +84,39 @@
 		<div class="search-conditions-box mx-3">
 			<div class="mt-5 px-4 py-0">
 				<form method="POST" action="{{ route('edit', ['cqid'=>$cqedit->cqid]) }}" class="row g-3">
-				@csrf 
+					@csrf
 					<div class="col-md-3 mb-1">
 						<label for="construction_no">工事番号</label>
-						<input type="tel" class="form-control" size="8" maxlength="8" name="construction_no" id="construction_no" placeholder="工事番号" value="{{$cqedit->construction_no }}" >
+						<input type="tel" class="form-control" size="8" maxlength="8" name="construction_no" id="construction_no" placeholder="工事番号" value="{{$cqedit->construction_no }}">
 					</div>
 					<div class="col-md-3 mb-1">
 						<label for="customer_name">顧客名</label>
-						<input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="株式会社〇〇">
+						<input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="株式会社〇〇" value="{{$cqedit->customer_name }}">
 					</div>
 					<div class="col-md-3 mb-1">
 						<label for="operating_date_st">竣工開始</label>
-						<input type="text" class="form-control datetimepicker-input datetimepicker" name="operating_date_st" id="operating_date_st" data-toggle="datetimepicker" data-target="#operating_date_st">
+						<input type="text" class="form-control datetimepicker-input datetimepicker" name="operating_date_st" id="operating_date_st" data-toggle="datetimepicker" data-target="#operating_date_st" value="{{$cqedit->operating_date_st }}">
 					</div>
 					<div class="col-md-3 mb-1">
 						<label for="operating_date_st">竣工終了</label>
-						<input type="text" class="form-control datetimepicker-input datetimepicker" name="operating_date_ed" id="operating_date_ed" data-toggle="datetimepicker" data-target="#operating_date_ed">
+						<input type="text" class="form-control datetimepicker-input datetimepicker" name="operating_date_ed" id="operating_date_ed" data-toggle="datetimepicker" data-target="#operating_date_ed" value="{{$cqedit->operating_date_ed }}">
 					</div>
 					<div id="operating_date_check">
 						<label for="operating_date_check">実施工程</label>
 						<div class="col-md-6 mb-1">
 							<div class="form-check form-check-inline">
 								<input type="hidden" name="o_s_sales" value="0">
-								<input class="form-check-input" type="checkbox" name="o_s_sales" id="o_s_sales" value="1">
+								<input class="form-check-input" type="checkbox" name="o_s_sales" id="o_s_sales" value="{{$cqedit->o_s_sales }}">
 								<label class="form-check-label" for="o_s_sales">営業</label>
 							</div>
 							<div class="form-check form-check-inline">
 								<input type="hidden" name="o_s_design" value="0">
-								<input class="form-check-input" type="checkbox" name="o_s_design" id="o_s_design" value="1">
+								<input class="form-check-input" type="checkbox" name="o_s_design" id="o_s_design" value="{{$cqedit->o_s_design }}">
 								<label class="form-check-label" for="o_s_design">設計</label>
 							</div>
 							<div class="form-check form-check-inline">
 								<input type="hidden" name="o_s_construction" value="0">
-								<input class="form-check-input" type="checkbox" name="o_s_construction" id="o_s_construction" value="1">
+								<input class="form-check-input" type="checkbox" name="o_s_construction" id="o_s_construction" value="{{$cqedit->o_s_construction }}">
 								<label class="form-check-label" for="o_s_construction">施工</label>
 							</div>
 						</div>
@@ -124,8 +124,24 @@
 					<div class="form-group row" name='advperm' id="advperm">
 						<label for="adv_perm">社内報・SNSへの掲載許可</label>
 						<div class="col-md-6 mb-1">
+							@switch($cqedit->adv_permission)
+							@case(0)
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="advpermGrp1" id="adv_perm_yes" value="1">
+								<label class="form-check-label" for="advpermGrp1">
+									許可
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="advpermGrp1" id="adv_perm_no" value="0" checked="checked">
+								<label class="form-check-label" for="advpermGrp1">
+									不許可
+								</label>
+							</div>
+							@break
+							@case(1)
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="advpermGrp1" id="adv_perm_yes" value="1" checked="checked">
 								<label class="form-check-label" for="advpermGrp1">
 									許可
 								</label>
@@ -136,44 +152,45 @@
 									不許可
 								</label>
 							</div>
+							@endswitch
 						</div>
 					</div>
 					<div class="form-group row" name='cqanswer1' id="cqanswer1">
 						<label for="cqanswer1">1.工程・工期について</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-1" value="1">
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-1" value="{{$cqedit->answerGrp1 }}">
 								<label class="form-check-label" for="answerGrp1">
 									1
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-2" value="2">
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-2" value="{{$cqedit->answerGrp1 }}">
 								<label class="form-check-label" for="answerGrp1">
 									2
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-3" value="3">
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-3" value="{{$cqedit->answerGrp1 }}">
 								<label class="form-check-label" for="answerGrp1">
 									3
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-4" value="4">
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-4" value="{{$cqedit->answerGrp1 }}">
 								<label class="form-check-label" for="answerGrp1">
 									4
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-5" value="5">
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-5" value="{{$cqedit->answerGrp1 }}">
 								<label class="form-check-label" for="answerGrp1">
 									5
 								</label>
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer2' id="cqanswer2">
+					<div class="form-group row" name='cqanswer2' id="cqanswer2">
 						<label for="cqanswer2">2.金額の納得度</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -202,13 +219,13 @@
 							</div>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="answerGrp2" id="ansewer2_5" value="5">
-								<label class="form-check-label" for="answerGrp2">	
+								<label class="form-check-label" for="answerGrp2">
 									5
 								</label>
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer3' id="cqanswer3">
+					<div class="form-group row" name='cqanswer3' id="cqanswer3">
 						<label for="cqanswer3">3.設計への評価</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -243,7 +260,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer4' id="cqanswer4">
+					<div class="form-group row" name='cqanswer4' id="cqanswer4">
 						<label for="cqanswer4">4.施工の仕上がり</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -278,7 +295,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer5' id="cqanswer5">
+					<div class="form-group row" name='cqanswer5' id="cqanswer5">
 						<label for="cqanswer5">5.弊社営業担当の対応について </label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -313,7 +330,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer6' id="cqanswer6">
+					<div class="form-group row" name='cqanswer6' id="cqanswer6">
 						<label for="cqanswer6">6.弊社設計担当の対応について </label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -348,7 +365,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer7' id="cqanswer7">
+					<div class="form-group row" name='cqanswer7' id="cqanswer7">
 						<label for="cqanswer7">7.弊社施工担当の対応について </label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -386,13 +403,13 @@
 					<div id="answer_f">
 						<label for="answer_f">自由記入欄</label>
 						<div class="col-xl-6 mb-3">
-							<textarea class="form-control" id="answer_freetext" name="answer_freetext" placeholder="〈自由記入欄>" cols="50" rows="10"></textarea>
+							<textarea class="form-control" id="answer_freetext" name="answer_freetext" placeholder="〈自由記入欄>" cols="50" rows="10"> {{$cqedit->answer_freetext }}</textarea>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-lg-12 text-left">
-							<input class="btn btn-primary" type="submit" value="登録" on-click="submit">
+							<input class="btn btn-primary" type="submit" value="更新" on-click="submit">
 						</div>
 					</div>
 				</form>

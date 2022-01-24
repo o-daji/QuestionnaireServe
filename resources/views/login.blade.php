@@ -65,7 +65,7 @@ background-color : #D2DBDF;
 		<nav class="navbar navbar-dark">
 			<span class="col-lg-2 col-sm-3 navbar-brand">
 				<img src="{{asset('images/logo_CQ.png')}}" class="w-100 mr-3">
-				<span classs="sys-name">顧客アンケートDBシステム</span>	
+				<span classs="sys-name">アンケートDBシステム</span>	
 			</span> 
 		</nav>
 	</div>

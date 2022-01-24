@@ -52,7 +52,7 @@ Route::post('/store', [CqstoreController::class, 'cqDataStore']);
 //アンケート編集画面遷移
 Route::get('/edit/{cqid}', [CqeditController::class, 'editshow'])->name('edit');
 //アンケート編集実行
-Route::post('/edit/{cqid}', [CqeditController::class, 'cqDataStore'])->name('edit');
+Route::post('/edit/{cqid}', [CqeditController::class, 'edit'])->name('edit');
 
 
 //アンケート削除
