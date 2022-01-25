@@ -41,6 +41,5 @@ class CqeditController extends Controller
         ]);
 
         return redirect('/top')->with('statusmessage', "アンケートID{$cqid}を更新しました");
-        return view('edit', compact('cqedit'));
     }
 }
