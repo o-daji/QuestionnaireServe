@@ -16,9 +16,11 @@ class CqeditController extends Controller
         return view('edit', compact('cqedit'));
     }
     //編集の更新を実行。
-    public function edit(Request $request)
+    public function edit(Request $request,$cqid)
     {
-        $savedata = [
+    
+        Cqresult::where('cqid',$cqid)
+        ->update([
             'construction_no' =>$request->input('construction_no'),
             'customer_name' =>$request->input('customer_name'),
             'operating_schedule_sales' =>$request->input('o_s_sales'),
@@ -36,8 +38,9 @@ class CqeditController extends Controller
             'answer7' =>$request->answerGrp7,
             'answer_freetext' => $request->input('answer_freetext')
 
-        ];
+        ]);
 
+        return redirect('/top')->with('statusmessage', "アンケートID{$cqid}を更新しました");
         return view('edit', compact('cqedit'));
     }
 }

@@ -106,17 +106,29 @@
 						<div class="col-md-6 mb-1">
 							<div class="form-check form-check-inline">
 								<input type="hidden" name="o_s_sales" value="0">
-								<input class="form-check-input" type="checkbox" name="o_s_sales" id="o_s_sales" value="{{$cqedit->o_s_sales }}">
+								@if($cqedit->operating_schedule_sales =="1")
+								<input class="form-check-input" type="checkbox" name="o_s_sales" id="o_s_sales" value="1" checked>
+								@else
+								<input class="form-check-input" type="checkbox" name="o_s_sales" id="o_s_sales" value="1">
+								@endif
 								<label class="form-check-label" for="o_s_sales">営業</label>
 							</div>
 							<div class="form-check form-check-inline">
 								<input type="hidden" name="o_s_design" value="0">
-								<input class="form-check-input" type="checkbox" name="o_s_design" id="o_s_design" value="{{$cqedit->o_s_design }}">
+								@if($cqedit->operating_schedule_design =="1")
+								<input class="form-check-input" type="checkbox" name="o_s_design" id="o_s_design" value="1" checked>
+								@else
+								<input class="form-check-input" type="checkbox" name="o_s_design" id="o_s_design" value="1">
+								@endif
 								<label class="form-check-label" for="o_s_design">設計</label>
 							</div>
 							<div class="form-check form-check-inline">
 								<input type="hidden" name="o_s_construction" value="0">
-								<input class="form-check-input" type="checkbox" name="o_s_construction" id="o_s_construction" value="{{$cqedit->o_s_construction }}">
+								@if($cqedit->operating_schedule_Construction =="1")
+								<input class="form-check-input" type="checkbox" name="o_s_construction" id="o_s_construction" value="1" checked>
+								@else
+								<input class="form-check-input" type="checkbox" name="o_s_construction" id="o_s_construction" value="1">
+								@endif
 								<label class="form-check-label" for="o_s_construction">施工</label>
 							</div>
 						</div>
@@ -159,31 +171,51 @@
 						<label for="cqanswer1">1.工程・工期について</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-1" value="{{$cqedit->answerGrp1 }}">
+								@if($cqedit->answer1 =="1")
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-1" value="1" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-1" value="1">
+								@endif
 								<label class="form-check-label" for="answerGrp1">
 									1
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-2" value="{{$cqedit->answerGrp1 }}">
-								<label class="form-check-label" for="answerGrp1">
-									2
-								</label>
+								@if($cqedit->answer1 =="2")
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-2" value="2" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-2" value="2">
+								@endif
+								<label class="form-check-label" for="answerGrp1"> <label class="form-check-label" for="answerGrp1">
+										2
+									</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-3" value="{{$cqedit->answerGrp1 }}">
+								@if($cqedit->answer1 =="3")
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-3" value="3" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-3" value="3">
+								@endif
 								<label class="form-check-label" for="answerGrp1">
 									3
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-4" value="{{$cqedit->answerGrp1 }}">
+								@if($cqedit->answer1 =="4")
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-4" value="4" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-4" value="4">
+								@endif
 								<label class="form-check-label" for="answerGrp1">
 									4
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-5" value="{{$cqedit->answerGrp1 }}">
+								@if($cqedit->answer1 =="5")
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-5" value="5" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp1" id="answer1-5" value="5">
+								@endif
 								<label class="form-check-label" for="answerGrp1">
 									5
 								</label>
@@ -194,31 +226,51 @@
 						<label for="cqanswer2">2.金額の納得度</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp2" id="ansewer2_1" value="1">
+								@if($cqedit->answer2 =="1")
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-1" value="1" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-1" value="1">
+								@endif
 								<label class="form-check-label" for="answerGrp2">
 									1
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp2" id="ansewer2_2" value="2">
-								<label class="form-check-label" for="answerGrp2">
-									2
-								</label>
+								@if($cqedit->answer2 =="2")
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-2" value="2" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-2" value="2">
+								@endif
+								<label class="form-check-label" for="answerGrp2"> <label class="form-check-label" for="answerGrp2">
+										2
+									</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp2" id="ansewer2_3" value="3">
+								@if($cqedit->answer2 =="3")
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-3" value="3" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-3" value="3">
+								@endif
 								<label class="form-check-label" for="answerGrp2">
 									3
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp2" id="ansewer2_4" value="4">
+								@if($cqedit->answer2 =="4")
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-4" value="4" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-4" value="4">
+								@endif
 								<label class="form-check-label" for="answerGrp2">
 									4
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp2" id="ansewer2_5" value="5">
+								@if($cqedit->answer2 =="5")
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-5" value="5" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp2" id="answer2-5" value="5">
+								@endif
 								<label class="form-check-label" for="answerGrp2">
 									5
 								</label>
@@ -229,31 +281,51 @@
 						<label for="cqanswer3">3.設計への評価</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp3" id="ansewer3_1" value="1">
+								@if($cqedit->answer3 =="1")
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-1" value="1" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-1" value="1">
+								@endif
 								<label class="form-check-label" for="answerGrp3">
 									1
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp3" id="ansewer3_2" value="2">
-								<label class="form-check-label" for="answerGrp3">
-									2
-								</label>
+								@if($cqedit->answer3 =="2")
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-2" value="2" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-2" value="2">
+								@endif
+								<label class="form-check-label" for="answerGrp3"> <label class="form-check-label" for="answerGrp3">
+										2
+									</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp3" id="ansewer3_3" value="3">
+								@if($cqedit->answer3 =="3")
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-3" value="3" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-3" value="3">
+								@endif
 								<label class="form-check-label" for="answerGrp3">
 									3
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp3" id="ansewer3_4" value="4">
+								@if($cqedit->answer3 =="4")
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-4" value="4" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-4" value="4">
+								@endif
 								<label class="form-check-label" for="answerGrp3">
 									4
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp3" id="ansewer3_5" value="5">
+								@if($cqedit->answer3 =="5")
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-5" value="5" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp3" id="answer3-5" value="5">
+								@endif
 								<label class="form-check-label" for="answerGrp3">
 									5
 								</label>
@@ -264,31 +336,51 @@
 						<label for="cqanswer4">4.施工の仕上がり</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp4" id="ansewer4_1" value="1">
+								@if($cqedit->answer4 =="1")
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-1" value="1" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-1" value="1">
+								@endif
 								<label class="form-check-label" for="answerGrp4">
 									1
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp4" id="ansewer4_2" value="2">
-								<label class="form-check-label" for="answerGrp4">
-									2
-								</label>
+								@if($cqedit->answer4 =="2")
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-2" value="2" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-2" value="2">
+								@endif
+								<label class="form-check-label" for="answerGrp4"> <label class="form-check-label" for="answerGrp4">
+										2
+									</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp4" id="ansewer4_3" value="3">
+								@if($cqedit->answer4 =="3")
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-3" value="3" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-3" value="3">
+								@endif
 								<label class="form-check-label" for="answerGrp4">
 									3
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp4" id="ansewer4_4" value="4">
+								@if($cqedit->answer4 =="4")
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-4" value="4" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-4" value="4">
+								@endif
 								<label class="form-check-label" for="answerGrp4">
 									4
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp4" id="ansewer4_5" value="5">
+								@if($cqedit->answer4 =="5")
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-5" value="5" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp4" id="answer4-5" value="5">
+								@endif
 								<label class="form-check-label" for="answerGrp4">
 									5
 								</label>
@@ -296,34 +388,54 @@
 						</div>
 					</div>
 					<div class="form-group row" name='cqanswer5' id="cqanswer5">
-						<label for="cqanswer5">5.弊社営業担当の対応について </label>
+						<label for="cqanswer5">5.弊社営業担当の対応について</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp5" id="ansewer5_1" value="1">
+								@if($cqedit->answer5 =="1")
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-1" value="1" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-1" value="1">
+								@endif
 								<label class="form-check-label" for="answerGrp5">
 									1
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp5" id="ansewer5_2" value="2">
-								<label class="form-check-label" for="answerGrp5">
-									2
-								</label>
+								@if($cqedit->answer5 =="2")
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-2" value="2" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-2" value="2">
+								@endif
+								<label class="form-check-label" for="answerGrp5"> <label class="form-check-label" for="answerGrp5">
+										2
+									</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp5" id="ansewer5_3" value="3">
+								@if($cqedit->answer5 =="3")
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-3" value="3" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-3" value="3">
+								@endif
 								<label class="form-check-label" for="answerGrp5">
 									3
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp5" id="ansewer5_4" value="4">
+								@if($cqedit->answer5 =="4")
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-4" value="4" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-4" value="4">
+								@endif
 								<label class="form-check-label" for="answerGrp5">
 									4
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp5" id="ansewer5_5" value="5">
+								@if($cqedit->answer5 =="5")
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-5" value="5" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp5" id="answer5-5" value="5">
+								@endif
 								<label class="form-check-label" for="answerGrp5">
 									5
 								</label>
@@ -331,34 +443,54 @@
 						</div>
 					</div>
 					<div class="form-group row" name='cqanswer6' id="cqanswer6">
-						<label for="cqanswer6">6.弊社設計担当の対応について </label>
+						<label for="cqanswer6">6.弊社設計担当の対応について</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp6" id="ansewer6_1" value="1">
+								@if($cqedit->answer6 =="1")
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-1" value="1" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-1" value="1">
+								@endif
 								<label class="form-check-label" for="answerGrp6">
 									1
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp6" id="ansewer6_2" value="2">
-								<label class="form-check-label" for="answerGrp6">
-									2
-								</label>
+								@if($cqedit->answer6 =="2")
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-2" value="2" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-2" value="2">
+								@endif
+								<label class="form-check-label" for="answerGrp6"> <label class="form-check-label" for="answerGrp6">
+										2
+									</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp6" id="ansewer6_3" value="3">
-								<label class="form-check-label" for="ansewer6_3">
+								@if($cqedit->answer6 =="3")
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-3" value="3" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-3" value="3">
+								@endif
+								<label class="form-check-label" for="answerGrp6">
 									3
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp6" id="ansewer6_4" value="4">
+								@if($cqedit->answer6 =="4")
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-4" value="4" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-4" value="4">
+								@endif
 								<label class="form-check-label" for="answerGrp6">
 									4
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp6" id="ansewer6_5" value="5">
+								@if($cqedit->answer6 =="5")
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-5" value="5" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp6" id="answer6-5" value="5">
+								@endif
 								<label class="form-check-label" for="answerGrp6">
 									5
 								</label>
@@ -369,31 +501,51 @@
 						<label for="cqanswer7">7.弊社施工担当の対応について </label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp7" id="ansewer7_1" value="1">
+								@if($cqedit->answer7 =="1")
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-1" value="1" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-1" value="1">
+								@endif
 								<label class="form-check-label" for="answerGrp7">
 									1
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp7" id="ansewer7_2" value="2">
-								<label class="form-check-label" for="answerGrp7">
-									2
-								</label>
+								@if($cqedit->answer7 =="2")
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-2" value="2" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-2" value="2">
+								@endif
+								<label class="form-check-label" for="answerGrp7"> <label class="form-check-label" for="answerGrp7">
+										2
+									</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp7" id="ansewer7_3" value="3">
+								@if($cqedit->answer7 =="3")
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-3" value="3" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-3" value="3">
+								@endif
 								<label class="form-check-label" for="answerGrp7">
 									3
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp7" id="ansewer7_4" value="4">
+								@if($cqedit->answer7 =="4")
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-4" value="4" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-4" value="4">
+								@endif
 								<label class="form-check-label" for="answerGrp7">
 									4
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="answerGrp7" id="ansewer7_5" value="5">
+								@if($cqedit->answer7 =="5")
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-5" value="5" checked>
+								@else
+								<input class="form-check-input" type="radio" name="answerGrp7" id="answer7-5" value="5">
+								@endif
 								<label class="form-check-label" for="answerGrp7">
 									5
 								</label>
