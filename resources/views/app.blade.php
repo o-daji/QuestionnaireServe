@@ -97,17 +97,17 @@
 					<div class="row" id="operating_date_check">
 						<label for="operating_date_check">実施工程</label>
 						<div class="form-check form-check-inline col-sm-1">
-							<input type="hidden" name="o_s_sales" value="0">
+							<input type="hidden" name="o_s_sales">
 							<input class="form-check-input" type="checkbox" name="o_s_sales" id="o_s_sales" value="1">
 							<label class="form-check-label" for="o_s_sales">営業</label>
 						</div>
 						<div class="form-check form-check-inline col-sm-1">
-							<input type="hidden" name="o_s_design" value="0">
+							<input type="hidden" name="o_s_design">
 							<input class="form-check-input" type="checkbox" name="o_s_design" id="o_s_design" value="1">
 							<label class="form-check-label" for="o_s_design">設計</label>
 						</div>
 						<div class="form-check form-check-inline col-sm-1">
-							<input type="hidden" name="o_s_construction" value="0">
+							<input type="hidden" name="o_s_construction">
 							<input class="form-check-input" type="checkbox" name="o_s_construction" id="o_s_construction" value="1">
 							<label class="form-check-label" for="o_s_construction">施工</label>
 						</div>
@@ -118,7 +118,7 @@
 								<label class="form-check-label" for="adv_perm_yes">有</label>
 							</div>
 							<div class="form-check form-check-inline col-sm-1">
-								<input class="form-check-input" type="checkbox" name="adv_perm_no" id="adv_perm_no" value="1">
+								<input class="form-check-input" type="checkbox" name="adv_perm_no" id="adv_perm_no" value="0">
 								<label class="form-check-label" for="adv_perm_no">無</label>
 							</div>
 						</div>
