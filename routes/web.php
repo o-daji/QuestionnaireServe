@@ -45,7 +45,7 @@ Route::get('/top/select', [CqresultSearchController::class, 'selectCqresultCondi
 Route::get('/detail/{cqid}', [CqdetailviewController::class, 'detailshow'])->name('detail');
 
 //アンケート登録画面遷移
-Route::get('/store', [CqstoreController::class, 'store']);
+Route::get('/store', [CqstoreController::class, 'store'])->name('store');
 //アンケート登録実行
 Route::post('/store', [CqstoreController::class, 'cqDataStore']);
 

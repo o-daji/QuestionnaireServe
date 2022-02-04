@@ -83,8 +83,17 @@
 		</div>
 		<div class="search-conditions-box mx-3">
 			<div class="mt-5 px-4 py-0">
+				@if ($errors->any())
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+				@endif
 				<form method="POST" action="/store" class="row g-3">
-				@csrf 
+					@csrf
 					<div class="col-md-3 mb-1">
 						<label for="construction_no">工事番号</label>
 						<input type="tel" class="form-control" size="8" maxlength="8" name="construction_no" id="construction_no" placeholder="工事番号">
@@ -173,7 +182,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer2' id="cqanswer2">
+					<div class="form-group row" name='cqanswer2' id="cqanswer2">
 						<label for="cqanswer2">2.金額の納得度</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -202,13 +211,13 @@
 							</div>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="answerGrp2" id="ansewer2_5" value="5">
-								<label class="form-check-label" for="answerGrp2">	
+								<label class="form-check-label" for="answerGrp2">
 									5
 								</label>
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer3' id="cqanswer3">
+					<div class="form-group row" name='cqanswer3' id="cqanswer3">
 						<label for="cqanswer3">3.設計への評価</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -243,7 +252,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer4' id="cqanswer4">
+					<div class="form-group row" name='cqanswer4' id="cqanswer4">
 						<label for="cqanswer4">4.施工の仕上がり</label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -278,7 +287,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer5' id="cqanswer5">
+					<div class="form-group row" name='cqanswer5' id="cqanswer5">
 						<label for="cqanswer5">5.弊社営業担当の対応について </label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -313,7 +322,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer6' id="cqanswer6">
+					<div class="form-group row" name='cqanswer6' id="cqanswer6">
 						<label for="cqanswer6">6.弊社設計担当の対応について </label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
@@ -348,7 +357,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row"  name='cqanswer7' id="cqanswer7">
+					<div class="form-group row" name='cqanswer7' id="cqanswer7">
 						<label for="cqanswer7">7.弊社施工担当の対応について </label>
 						<div class="col-md-6">
 							<div class="form-check form-check-inline">
